@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Day Details</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    
+</head>
+
+<body>
+    <form action="/submit" method="POST">
+        <label for="place">Enter the place </label>
+        <input type="text" placeholder="Enter name of place" name="place" id="place">
+        <br>
+        <button>Submit</button>
+
+        <div id="content">
+            <% if(locals.content&&locals.st1&&locals.st2&&locals.st3&&locals.st4&&locals.st5&&locals.st6&&slice&&slice1) {%>
+
+                <h2>Current U-V right now is: <%= content.result.uv %></h2>
+                <h3>Few things to keep in mind before going outside:</h3>
+                <h4>People with very fair skin can stay outside for: <%= (st1) %> minutes</h4>
+                <h4>People with fair skin can stay outside for: <%= (st2) %> minutes</h4>
+                <h4>People with light brown skin can stay outside for: <%= (st3) %> minutes</h4>
+                <h4>People with moderate brown skin can stay outside for: <%= (st4) %> mnutes</h4>
+                <h4>People with dark brown skin can stay outside for: <%= (st5) %>minutes</h4>
+                <h4>People with very dark skin can stay outside for: <%= (st6) %>minutes</h4>
+
+                <h1>Other details which will make your stay happy today </h1>
+                <h3>The end of the "Golden Hour" for photography.<%= slice %></h3>
+                <h3>The beginning of the "Golden Hour" before sunset (best lighting for photos).<%= slice1 %></h3>
+                
+
+            <% } else { %>
+                
+                <h1>No data available</h1>
+            <% } %>
+        </div>
+    </form>
+</body>
+</html>
